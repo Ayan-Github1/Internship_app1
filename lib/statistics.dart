@@ -108,7 +108,7 @@ class Grid extends StatelessWidget{
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),
+                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),// Didn't found the route icon, replaced with other icon
                       ),
                       Text('Distance',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
@@ -180,7 +180,7 @@ class Grid extends StatelessWidget{
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: Icon(CupertinoIcons.speedometer,color: Colors.white,size: 20.0,),
+                        child: Icon(CupertinoIcons.speedometer,color: Colors.white,size: 20.0,),// Didn't found the avg meter icon, replaced with other icon
                       ),
                       Text('Avg Speed',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
@@ -195,7 +195,6 @@ class Grid extends StatelessWidget{
                               ]
                           )
                       ),
-
                     ],
                   ),
                 ),
@@ -211,7 +210,7 @@ class Grid extends StatelessWidget{
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: Icon(Icons.speed,color: Colors.white,size: 20.0,),
+                        child: Icon(Icons.speed,color: Colors.white,size: 20.0,),// Didn't found the top speed icon, replaced with other icon
                       ),
                       Text('Top speed',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
@@ -241,7 +240,7 @@ class Grid extends StatelessWidget{
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),
+                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),// Didn't found the fuel icon, replaced with other icon
                       ),
                       Text('Fuel Spending',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
@@ -272,7 +271,7 @@ class Grid extends StatelessWidget{
                     children: <Widget>[
                       Padding(
                         padding: const EdgeInsets.only(bottom: 12.0),
-                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),
+                        child: FaIcon(FontAwesomeIcons.route,color: Colors.white,size: 18.0,),// Didn't found the fuel icon, replaced with other icon
                       ),
                       Text('Fuel Cost / KM',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(

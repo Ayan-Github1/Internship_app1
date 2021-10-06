@@ -139,9 +139,9 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
            tabs: [
              // Tab(child: SvgPicture.asset("assets/images/guage.svg",color: Colors.blue,),),
              // Tab(icon: SvgPicture.asset("assets/images/direction.svg",),),
-             Tab(icon: FaIcon(FontAwesomeIcons.tachometerAlt,size: 20.0,),),
-             Tab(icon: FaIcon(FontAwesomeIcons.route,size: 20.0,),),
-             Tab(icon: Icon(LineIcons.barChartAlt,size: 20.0,),),
+             Tab(icon: FaIcon(FontAwesomeIcons.tachometerAlt,size: 20.0,),),// Didn't found the meter icon, replaced with other icon
+             Tab(icon: FaIcon(FontAwesomeIcons.route,size: 20.0,),),// Didn't found the route icon, replaced with other icon
+             Tab(icon: Icon(LineIcons.barChartAlt,size: 20.0,),),// Didn't found the filled bar icon, replaced with other icon
              Tab(icon: Icon(Icons.notifications,size: 20.0,)),
              // Tab(icon: FaIcon(FontAwesomeIcons.bell),),
            ],

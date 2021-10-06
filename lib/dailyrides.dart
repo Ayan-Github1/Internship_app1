@@ -41,7 +41,7 @@ class _DailyRidesState extends State<DailyRides>{
               child: Container(
                 height: 200.0,
                 width: 200.0,
-                child: Image.asset("assets/images/location.png"),
+                child: Image.asset("assets/images/location.png"),// Didn't found the exact image, replaced with other image
               ),
             ),
             Padding(
