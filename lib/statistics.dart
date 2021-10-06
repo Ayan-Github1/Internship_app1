@@ -245,7 +245,7 @@ class Grid extends StatelessWidget{
                       Text('Fuel Spending',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
                           TextSpan(
-                              text: '!',
+                              text: '\u{20B9}',
                               style: TextStyle(fontSize: 9.0,color: Colors.white),
                               children: <InlineSpan>[
                                 TextSpan(
@@ -280,7 +280,7 @@ class Grid extends StatelessWidget{
                               style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 30.0),
                               children: <InlineSpan>[
                                 TextSpan(
-                                    text: ' !',
+                                    text: ' \u{20B9}',
                                     style: TextStyle(fontSize: 9.0,color: Colors.white)
                                 )
                               ]
