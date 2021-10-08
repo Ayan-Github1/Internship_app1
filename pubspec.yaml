@@ -32,6 +32,7 @@ dependencies:
   font_awesome_flutter: ^9.1.0
   flutter_svg: ^0.22.0
   fluttericon: ^2.0.0
+  flat_icons_flutter: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,7 @@ flutter:
 #    - assets/images/direction.svg
 #    - assets/images/guage.svg
     - assets/images/location.png
+    - assets/images/heart.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
