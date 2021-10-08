@@ -92,11 +92,12 @@ class Grid extends StatelessWidget{
           ),
           child: GridView.count(
             scrollDirection: Axis.vertical,
-            childAspectRatio: width / (height / 2.5),
+            childAspectRatio: width / (height / 2.3),
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 20,
             children: <Widget>[
+
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
@@ -127,8 +128,8 @@ class Grid extends StatelessWidget{
                     ],
                   ),
                 ),
-
               ),
+
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
@@ -167,8 +168,8 @@ class Grid extends StatelessWidget{
                     ],
                   ),
                 ),
-
               ),
+
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
@@ -199,6 +200,7 @@ class Grid extends StatelessWidget{
                   ),
                 ),
               ),
+
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
@@ -229,6 +231,7 @@ class Grid extends StatelessWidget{
                   ),
                 ),
               ),
+
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
@@ -245,20 +248,22 @@ class Grid extends StatelessWidget{
                       Text('Fuel Spending',style: TextStyle(color: Colors.white,fontSize: 10.0),),
                       Text.rich(
                           TextSpan(
-                              text: '\u{20B9} ',
-                              style: TextStyle(fontSize: 11.0,color: Colors.white),
+                              text: '\u{20B9}',
+                              style: TextStyle(fontSize: 9.0,color: Colors.white),
                               children: <InlineSpan>[
                                 TextSpan(
-                                    text: '0.0',
+                                    text: ' 0.0',
                                     style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 30.0),
                                 )
                               ]
                           )
                       ),
+
                     ],
                   ),
                 ),
               ),
+
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5.0),
@@ -279,8 +284,8 @@ class Grid extends StatelessWidget{
                               style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 30.0),
                               children: <InlineSpan>[
                                 TextSpan(
-                                    text:  ' \u{20B9}',
-                                    style: TextStyle(fontSize: 11.0,color: Colors.white)
+                                    text: ' \u{20B9}',
+                                    style: TextStyle(fontSize: 9.0,color: Colors.white)
                                 )
                               ]
                           )

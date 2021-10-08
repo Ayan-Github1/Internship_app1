@@ -5,9 +5,11 @@ import 'package:line_icons/line_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
+import 'Dashboard.dart';
 import 'dailyrides.dart';
 import 'locationShare.dart';
 import 'myProfile.dart';
+import 'notifications.dart';
 
 
 void main() => runApp(const App());
@@ -18,6 +20,7 @@ class App extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: StateWidget(),
     );
   }
@@ -76,21 +79,20 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
          child: Drawer(
            child: ListView(
              children: <Widget>[
+
+               //Root container holding all widgets in the drawer header
                Container(
                  height: 245.0,
                  child: DrawerHeader(
                      margin: EdgeInsets.all(0.0),
                      padding: EdgeInsets.all(0.0),
-                   decoration: BoxDecoration(
-                     // border: Border.all(),
+                     decoration: BoxDecoration(
                      color: Colors.grey.shade200
                    ),
                      child: Column(
                        children: [
+
                          Container(
-                           decoration: BoxDecoration(
-                             // border: Border.all()
-                           ),
                            child: Padding(
                              padding: const EdgeInsets.only(top: 28.0,left: 14.0,bottom: 20.0),
                              child: Row(
@@ -122,14 +124,16 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                              ),
                            ),
                          ),
+
                          Divider(),
+
                          Padding(
                            padding: const EdgeInsets.only(left: 25.0,right: 13.0),
                            child: Container(
                              height: 90.0,
                              child: Row(
                                children: <Widget>[
-                                 FaIcon(FontAwesomeIcons.motorcycle,color: Colors.grey,),//didn't found the exact icon
+                                 FaIcon(FontAwesomeIcons.motorcycle,color: Colors.grey,),//Didn't found the exact icon, replaced with another icon
                                  Padding(
                                    padding: const EdgeInsets.only(top: 15.0,left: 20.0),
                                    child: Column(
@@ -139,7 +143,7 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                                        Row(
                                          children: <Widget>[
                                            Text('MH02TH7890',style: TextStyle(color: Colors.grey.shade600,fontSize: 20),),
-                                           Icon(Icons.warning_amber,color: Colors.orange,size: 15.0)//didn't found the exact icon
+                                           Icon(Icons.warning_amber,color: Colors.orange,size: 15.0)//didn't found the exact icon, replaced with another icon
                                          ],
                                        ),
                                        Padding(
@@ -171,7 +175,7 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                ListTile(
                  leading: Padding(
                    padding: const EdgeInsets.only(left: 9.0),
-                   child: Icon(Icons.video_settings_outlined,color: Colors.black,),
+                   child: Icon(Icons.video_settings_outlined,color: Colors.black,),//didn't found the exact icon, replaced with another icon
                  ),
                  title: Text('Show exported rides',style: TextStyle(color: Colors.black54)),
                ),
@@ -184,6 +188,8 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                  title: Text('Fuel logs',style: TextStyle(color: Colors.black54)),
                ),
 
+
+               //This specific list tile has an onclick event which takes us to the Location screen
                ListTile(
                  leading: Padding(
                    padding: const EdgeInsets.only(left: 9.0),
@@ -193,6 +199,8 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => LocationShare())),
                ),
 
+
+               //This specific list tile has an onclick event which takes us to the Settings screen
                ListTile(
                  leading: Padding(
                    padding: const EdgeInsets.only(left: 9.0),
@@ -259,15 +267,17 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
            : Container(),
          ],
        ),
+
        body: TabBarView(
          controller: tabController,
          children: <Widget>[
-           Center(child: Text('First')),
+           MyDashboard(),
            DailyRides(),
            Statistics(),
-           Center(child: Text('Fourth')),
+           Notifications(),
          ],
        ),
+
 
        bottomNavigationBar: Container(
          decoration: BoxDecoration(
@@ -280,11 +290,12 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
            tabs: [
              // Tab(child: SvgPicture.asset("assets/images/guage.svg",color: Colors.blue,),),
              // Tab(icon: SvgPicture.asset("assets/images/direction.svg",),),
+
              Tab(icon: FaIcon(FontAwesomeIcons.tachometerAlt,size: 20.0,),),// Didn't found the meter icon, replaced with other icon
              Tab(icon: FaIcon(FontAwesomeIcons.route,size: 20.0,),),// Didn't found the route icon, replaced with other icon
              Tab(icon: Icon(LineIcons.barChartAlt,size: 20.0,),),// Didn't found the filled bar icon, replaced with other icon
              Tab(icon: Icon(Icons.notifications,size: 20.0,)),
-             // Tab(icon: FaIcon(FontAwesomeIcons.bell),),
+
            ],
          ),
        )
@@ -316,7 +327,7 @@ class Settings extends StatelessWidget{
                   horizontalTitleGap: 8.5,
                   leading: Padding(
                     padding: const EdgeInsets.only(top: 10.0,left: 8.0),
-                    child: Icon(Icons.language,size: 22.0,color: Colors.black,),
+                    child: Icon(Icons.language,size: 22.0,color: Colors.black,),//didn't found the exact icon, replaced with another icon
                   ),
                   title: Text('Choose language',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w500)),
                   subtitle: Text('Language applies to app & emergency call',style: TextStyle(fontSize: 12.0),),
@@ -324,6 +335,7 @@ class Settings extends StatelessWidget{
                 ),
               ),
 
+              //This specific list tile has an onclick event for an icon as well as to list tile which takes us to the Profile screen
               Padding(
                 padding: const EdgeInsets.only(top: 10.0),
                 child: ListTile(
@@ -348,7 +360,7 @@ class Settings extends StatelessWidget{
                   minVerticalPadding: 15.0,
                   leading: Padding(
                     padding: const EdgeInsets.only(left: 8.0,top: 12.0),
-                    child: Icon(Icons.filter_tilt_shift,size: 22.0,color: Colors.black,),
+                    child: Icon(Icons.filter_tilt_shift,size: 22.0,color: Colors.black,),//didn't found the exact icon, replaced with another icon
                   ),
                   title: Text('Vehicle settings',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w500)),
                   subtitle: Text('Add, edit or delete vehicles. Add or edit vehicle insurance details',style: TextStyle(fontSize: 12.0),),
@@ -365,7 +377,7 @@ class Settings extends StatelessWidget{
                   horizontalTitleGap: 8.5,
                   leading: Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Icon(Icons.settings_backup_restore_sharp,size: 22.0,color: Colors.black,),
+                    child: Icon(Icons.settings_backup_restore_sharp,size: 22.0,color: Colors.black,),//didn't found the exact icon, replaced with another icon
                   ),
                   title: Text('Backup',style: TextStyle(fontWeight: FontWeight.w500)),
                   trailing: Icon(Icons.chevron_right_outlined,size: 22.0,),
@@ -378,7 +390,7 @@ class Settings extends StatelessWidget{
                   horizontalTitleGap: 8.5,
                   leading: Padding(
                     padding: const EdgeInsets.only(left: 8.0),
-                    child: Icon(Icons.settings_backup_restore_sharp,size: 22.0,color: Colors.black,),
+                    child: Icon(Icons.settings_backup_restore_sharp,size: 22.0,color: Colors.black,),//didn't found the exact icon, replaced with another icon
                   ),
                   title: Text('Current sessions',style: TextStyle(fontWeight: FontWeight.w500)),
                   trailing: Icon(Icons.chevron_right_outlined,size: 22.0,),
