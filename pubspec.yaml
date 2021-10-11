@@ -33,7 +33,7 @@ dependencies:
   flutter_svg: ^0.22.0
   fluttericon: ^2.0.0
   flat_icons_flutter: ^1.0.2
-#  mapmyindia_gl: ^0.2.0
+  mapmyindia_gl: ^0.2.0
 
 dev_dependencies:
   flutter_test:

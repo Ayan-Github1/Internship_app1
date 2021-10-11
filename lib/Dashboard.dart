@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:mapmyindia_gl/mapmyindia_gl.dart';
+import 'package:mapmyindia_gl/mapmyindia_gl.dart';
 
 void main() => runApp(DashboardClass());
 
@@ -21,7 +21,30 @@ class MyDashboard extends StatefulWidget{
 
 }
 
+
+
 class _MyDashboardState extends State<MyDashboard>{
+
+  static const String MAP_SDK_KEY = "";
+  static const String REST_API_KEY = "";
+  static const String ATLAS_CLIENT_ID = "";
+  static const String ATLAS_CLIENT_SECRET = "";
+
+  // late MapmyIndiaMapController mapController;
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    MapmyIndiaAccountManager.setMapSDKKey(MAP_SDK_KEY);
+    MapmyIndiaAccountManager.setRestAPIKey(REST_API_KEY);
+    MapmyIndiaAccountManager.setAtlasClientId(ATLAS_CLIENT_ID);
+    MapmyIndiaAccountManager.setAtlasClientSecret(ATLAS_CLIENT_SECRET);
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +60,12 @@ class _MyDashboardState extends State<MyDashboard>{
                 ),
 
                 // Map integration code comes here.....
+                child: MapmyIndiaMap(
+                  initialCameraPosition: CameraPosition(
+                    target: LatLng(25.321684, 82.987289),
+                    zoom: 14.0,
+                  ),
+                ),
 
               )
             ],
