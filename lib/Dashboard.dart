@@ -1,5 +1,8 @@
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mapmyindia_gl/mapmyindia_gl.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 
 void main() => runApp(DashboardClass());
 
@@ -24,25 +27,30 @@ class MyDashboard extends StatefulWidget{
 
 
 class _MyDashboardState extends State<MyDashboard>{
+  bool switchButton = false;
 
-  static const String MAP_SDK_KEY = "";
-  static const String REST_API_KEY = "";
-  static const String ATLAS_CLIENT_ID = "";
-  static const String ATLAS_CLIENT_SECRET = "";
-
-  // late MapmyIndiaMapController mapController;
-
-
-  @override
-  void initState() {
-    super.initState();
-
-    MapmyIndiaAccountManager.setMapSDKKey(MAP_SDK_KEY);
-    MapmyIndiaAccountManager.setRestAPIKey(REST_API_KEY);
-    MapmyIndiaAccountManager.setAtlasClientId(ATLAS_CLIENT_ID);
-    MapmyIndiaAccountManager.setAtlasClientSecret(ATLAS_CLIENT_SECRET);
-
+  void change(bool value){
+    if(switchButton == false)
+    {
+      setState(() {
+        switchButton = true;
+      });
+    }
+    else
+    {
+      setState(() {
+        switchButton = false;
+      });
+    }
   }
+
+  late GoogleMapController _controller;
+  final LatLng _center = const LatLng(15.353878, 75.138725);
+
+  void _onMapCreated(GoogleMapController controller) {
+    _controller = controller;
+  }
+
 
 
   @override
@@ -54,26 +62,133 @@ class _MyDashboardState extends State<MyDashboard>{
             children: <Widget>[
               Container(
                 height: MediaQuery.of(context).size.height * 0.59,
-                //380.0,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
 
-                // Map integration code comes here.....
-                child: MapmyIndiaMap(
+                // Map integration code
+                child:  GoogleMap(
+                  zoomControlsEnabled: false,
+                  mapType: MapType.terrain,
+                  onMapCreated: _onMapCreated,
                   initialCameraPosition: CameraPosition(
-                    target: LatLng(25.321684, 82.987289),
-                    zoom: 14.0,
+                    target: _center,
+                    zoom: 10.0,
                   ),
                 ),
+              ),
 
-              )
+              //Fall Alert Container
+              Padding(
+                padding: EdgeInsets.only(left: 20.0,top: 8.0),
+                child: Container(
+                  height: 35.0,
+                  width: 120.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(60.0),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black54,
+                          blurRadius: 2.0,
+                          offset: Offset(0.0, 0.75)
+                      )
+                    ],
+                    color: Colors.grey.shade200
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 6.0),
+                        child: Text('Fall Alert',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500),),
+                      ),
+                      Transform.scale(
+                        scale: 0.80,
+                        child: Switch(
+                            value: switchButton,
+                            onChanged: change,
+                            inactiveThumbColor: Colors.grey,
+                            inactiveTrackColor: Colors.grey.shade400,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ),
+
+              //Map and location buttons
+              Positioned(
+                left: 300.0,
+                top: 269.0,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(60.0),
+                          color: Colors.white,
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                                color: Colors.black54,
+                                blurRadius: 2.0,
+                                offset: Offset(0.0, 0.75)
+                            )
+                          ],
+                        ),
+                        child: IconButton(
+                          onPressed: null,
+                          icon: Icon(Iconsax.map,color: Colors.black,),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40.0),
+                        color: Colors.white,
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.black54,
+                              blurRadius: 2.0,
+                              offset: Offset(0.0, 0.75)
+                          )
+                        ]
+                      ),
+                      child: IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.assistant_navigation,color: Colors.black,),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              //Floating action button
+              Positioned(
+                top: 330.0,
+                left: 130.0,
+                child: Container(
+                  height: 40.0,
+                  width: 90.0,
+                  child: FloatingActionButton.extended(
+                    backgroundColor: Colors.white,
+                    onPressed: null,
+                    label: Padding(
+                      padding: const EdgeInsets.only(right: 30.0),
+                      child: Text('Start',style: TextStyle(color: Colors.black),),
+                    ),
+                    icon: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Icon(Icons.arrow_right,size: 35.0,color: Colors.blue,),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
 
 
 
 
+
+          
           Container(
             height: 133.0,
             color: Colors.grey.shade200,
