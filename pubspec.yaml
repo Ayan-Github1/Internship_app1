@@ -35,6 +35,7 @@ dependencies:
   flat_icons_flutter: ^1.0.2
   google_maps_flutter: ^2.0.9
   iconsax: ^0.0.8
+  percent_indicator: ^3.4.0
 #  mapmyindia_gl: ^0.2.0
 
 dev_dependencies:
@@ -58,6 +59,7 @@ flutter:
 #    - assets/images/guage.svg
     - assets/images/location.png
     - assets/images/heart.jpg
+    - assets/images/sharedwithme.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

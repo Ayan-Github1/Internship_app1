@@ -5,6 +5,7 @@ import 'package:line_icons/line_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
+import 'AddMoreVehicle.dart';
 import 'Dashboard.dart';
 import 'dailyrides.dart';
 import 'locationShare.dart';
@@ -224,6 +225,7 @@ class _MyState extends State<StateWidget> with SingleTickerProviderStateMixin{
                    child: Icon(Icons.add_to_photos_sharp,color: Colors.black,),
                  ),
                  title: Text('Add more vehicle',style: TextStyle(color: Colors.black54)),
+                 onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AddMoreVehicle())),
                ),
 
              ],
