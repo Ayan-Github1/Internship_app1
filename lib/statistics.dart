@@ -86,7 +86,7 @@ class Grid extends StatelessWidget{
     return Column(
       children: <Widget>[
         Container(
-          height: 430.0,
+          height: MediaQuery.of(context).size.height * 0.75,
           decoration: BoxDecoration(
             // border: Border.all()
           ),

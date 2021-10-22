@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 void main() => runApp(const AddMoreVehicle());
 
 class  AddMoreVehicle extends StatelessWidget{
@@ -7,9 +8,8 @@ class  AddMoreVehicle extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AddMoreVehicleState(),
-    );
+    return AddMoreVehicleState();
+
   }
 }
 
@@ -21,8 +21,10 @@ class AddMoreVehicleState extends StatefulWidget{
 
 
 class AddMoreVehiclePage extends State<AddMoreVehicleState>{
+  String _chooseValue = 'Select vehicle make';
   Widget build(BuildContext context){
     return Scaffold(
+      resizeToAvoidBottomInset: false ,
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -32,7 +34,7 @@ class AddMoreVehiclePage extends State<AddMoreVehicleState>{
               builder: (context) =>
                   IconButton(
                     icon: Icon(Icons.arrow_back,size: 30.0,),
-                    onPressed: () => Scaffold.of(context).openDrawer(),
+                    onPressed: () => Navigator.pop(context),
                   ),
             )
         ),
@@ -41,175 +43,178 @@ class AddMoreVehiclePage extends State<AddMoreVehicleState>{
         title: Text("Add more vehicle",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 19.0),),
       ),
 
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(top:30.0,right: 230.0),
-            child: Text("Select vehicle",style: TextStyle(color: Colors.black,fontSize: 12.0),),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 25.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                CircleAvatar(
-                  radius: 15.0,
-                  child: Icon(Icons.two_wheeler_outlined),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 15.0,left: 18.0,right: 18.0),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  // border: Border.all()
                 ),
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: Text("Select vehicle",style: TextStyle(color: Colors.black,fontSize: 12.0,fontWeight: FontWeight.w700)),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
+                              Container(
+                                child: CircleAvatar(
+                                  radius: 13,
+                                    child: Icon(Icons.two_wheeler_outlined,size: 20,),
+                                    backgroundColor: Colors.blue,
+                                    foregroundColor: Colors.white,
+                                ),
+                                decoration: new BoxDecoration(
+                                  shape: BoxShape.circle,
 
+                                  border: new Border.all(
+                                    color: Colors.green,
+                                    width: 3.0,
+                                  ),
+                                ),
+                              ),
+                              Text("Two wheeler",style: TextStyle(fontSize: 9.0,color: Colors.blue),),
+                            ],
+                          ),
 
-                CircleAvatar(
-                  radius: 15.0,
-                  child: Icon(Icons.directions_car),
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.white,
-                ),
+                          Column(
+                            children: <Widget>[
+                              CircleAvatar(
+                                            radius: 13.0,
+                                            child: Icon(Icons.directions_car),
+                                            backgroundColor: Colors.grey,
+                                            foregroundColor: Colors.white,
+                              ),
+                              Text("Four wheeler",style: TextStyle(fontSize: 9.0,color: Colors.grey),),
+                            ],
+                          ),
 
+                          Column(
+                            children: <Widget>[
+                              CircleAvatar(
+                                radius: 13.0,
+                                child: Icon(Icons.electric_rickshaw),
+                                backgroundColor: Colors.grey,
+                                            foregroundColor: Colors.white,
+                              ),
+                              Text("Auto rickshaw",style: TextStyle(fontSize: 9.0,color: Colors.grey),),
+                            ],
+                          ),
 
-                CircleAvatar(
-                  radius: 15.0,
-                  child: Icon(Icons.electric_rickshaw),
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.white,
-                ),
+                          Column(
+                            children: <Widget>[
+                              CircleAvatar(
+                                radius: 13.0,
+                                child: Icon(Icons.directions_bus),
+                                backgroundColor: Colors.grey,
+                                            foregroundColor: Colors.white,
+                              ),
+                              Text("Heavy vehicle",style: TextStyle(fontSize: 9.0,color: Colors.grey),),
+                            ],
+                          ),
 
-                CircleAvatar(
-                  radius: 15.0,
-                  child: Icon(Icons.directions_bus),
-                  backgroundColor: Colors.grey,
-                  foregroundColor: Colors.white,
-                ),
-
-              ],
-            ),
-          ),
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left:10.0,top: 8.0),
-                      child: Text("Two wheeler",style: TextStyle(fontSize: 10.0,color: Colors.blue),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text("Four wheeler",style: TextStyle(fontSize: 10.0,color: Colors.grey),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text("Auto rickshaw",style: TextStyle(fontSize: 10.0,color: Colors.grey),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: Text("Heavy vehicle",style: TextStyle(fontSize: 10.0,color: Colors.grey),),
-                    ),
-                  ],
-                ),
-              ),
-
-            ],
-
-          ),
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 30.0,right: 10.0,left: 20.0),
-                child: Row(
-                  children: [
-                    Text("Select vehicle make",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 12.0),),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0,left: 150.0),
-                      child: Icon(Icons.arrow_drop_down,color: Colors.blue,size: 50.0,),
-                    )
-
-                  ],
-                ),
-              ),
-
-
-            ],
-
-
-          ),
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top:25.0,right: 100.0),
-                child: Text("Enter vehicle number e.g. MH02CV3666",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12.0),),
-              ),
-              Divider(
-                thickness: 1.0,
-                height: 20,
-                indent: 20,
-                endIndent: 20,
-              )
-            ],
-          ),
-
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top:25.0,right: 250.0),
-                child: Text("Device UID",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12.0),),
-              ),
-              Divider(
-                thickness: 1.0,
-                height: 20,
-                indent: 20,
-                endIndent: 80,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(bottom:15.0,left: 310.0,),
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.smartphone)
-                  ],
-                ),
-              )
-            ],
-          ),
-
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top:5.0,right: 200.0),
-                child: Text("Device IMEI Number",style: TextStyle(fontWeight: FontWeight.normal,fontSize: 12.0),),
-              ),
-              Divider(
-                thickness: 1.0,
-                height: 20,
-                indent: 20,
-                endIndent: 20,
-              )
-            ],
-          ),
-
-          Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(25.0),
-                child: Container(
-                  height: 30,
-                  width: 350,
-                  child: FlatButton(
-                    child: Text("Save",style: TextStyle(color: Colors.white),),
-
-                    color: Colors.blue,
-
-                    onPressed: () {},
+                        ],
+                      )
+                    ],
                   ),
                 ),
               ),
-            ],
-          )
+            ),
 
-        ],
-      ),
+            Container(
+              height: 400,
+              decoration: BoxDecoration(
+                  // border: Border.all()
+              ),
+              child: Column(
+                children: <Widget>[
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton<String>(
+                      isExpanded: true,
+                      elevation: 0,
+                      value: _chooseValue,
+                      items: <String>['Select vehicle make'].map<DropdownMenuItem<String>>((String value){
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,style: TextStyle(fontSize: 13.0,fontWeight: FontWeight.w700),),
+                        );
+                      }
+                      ).toList(),
+                      onChanged: (String? value){
+                        setState(() {
+                          _chooseValue = value!;
+                        });
+                      },
+                      icon: Icon(Icons.arrow_drop_down,color: Colors.blue,size: 40.0),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0,left: 8.0,right: 8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          hintText: "Enter vehicle number e.g. MH02CV3666", hintStyle: TextStyle(fontSize: 12.0)
+                         ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 270,
+                          child: TextField(
+                            decoration: InputDecoration(
+
+                                hintText: "Device UID", hintStyle: TextStyle(fontSize: 12.0)
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 25.0,left: 10),
+                          child: Icon(Icons.smartphone),
+                        ),
+                      ],
+                    ),
+                   //
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: InputDecoration(
+                          hintText: "Device IMEI Number", hintStyle: TextStyle(fontSize: 12.0)
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20.0),
+                    child: Container(
+                      width: 320,
+                      child: ElevatedButton(
+                          onPressed: null,
+                          child: Text("Save",style: TextStyle(color: Colors.white,fontSize: 10.0),),
+                          style:ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.blue))),
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+          ],
+        ),
+      )
+
     );
   }
 }

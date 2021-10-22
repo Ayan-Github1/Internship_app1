@@ -8,9 +8,7 @@ class MyProfile extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyProfileState(),
-    );
+    return MyProfileState();
   }
 }
 
@@ -28,13 +26,11 @@ class MyProfilePage extends State<MyProfileState>{
         iconTheme: IconThemeData(color: Colors.black),
         leading: Padding(
             padding: const EdgeInsets.all(1.0),
-            child: Builder(
-              builder: (context) =>
-                  IconButton(
+            child: IconButton(
                     icon: Icon(Icons.arrow_back,size: 30.0,),
-                    onPressed: () => Scaffold.of(context).openDrawer(),
-                  ),
+                    onPressed: () => Navigator.pop(context)
             )
+
         ),
         elevation: 1.0,
         backgroundColor: Colors.grey.shade200,
@@ -61,15 +57,22 @@ class MyProfilePage extends State<MyProfileState>{
                      child: SizedBox(
                      width: 25.0,
                      height: 25.0,
-                       child: FloatingActionButton(
-                         child: Icon(Icons.edit),
-                         backgroundColor: Colors.blue,
-                         foregroundColor: Colors.white,
-                         onPressed: () {  },
-                       ),
+                        child: PopupMenuButton(
+                          // color: Colors.blue,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.blue
+                            ),
+                              child: Icon(Icons.edit,color: Colors.white,)
+                          ),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(child: Text("Edit Picture",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.w700),),value: 1),
+                            PopupMenuItem(child: Text("Remove Picture",style: TextStyle(fontSize: 15.0,fontWeight: FontWeight.w700)),value: 2),
+                          ],
+                        )
                      ),
                    ),
-
                  ],
                ),
                Padding(
@@ -106,7 +109,7 @@ class MyProfilePage extends State<MyProfileState>{
                  children: <Widget>[
                    Padding(
                      padding: const EdgeInsets.only(top:8.0,left: 15.0),
-                     child: Text('Profile completeness'),
+                     child: Text('Profile completeness',style: TextStyle(fontSize: 12.0),),
                    ),
                    Padding(
                      padding: const EdgeInsets.all(5.0),
@@ -119,7 +122,7 @@ class MyProfilePage extends State<MyProfileState>{
                            backgroundColor: Colors.grey,
                            progressColor: Colors.red,
 
-                           trailing: Icon(Icons.check_circle_outlined),
+                           trailing: Icon(Icons.check_circle_outlined),//Unable to append it with the progress bar at the end. So created it with little space
 
                        ),
                         Padding(
@@ -203,12 +206,34 @@ class MyProfilePage extends State<MyProfileState>{
                       child: Card(
                         margin: EdgeInsets.all(0.0),
                         child: Column(
-                          children: <Widget>[
 
-                            Padding(
-                              padding: const EdgeInsets.only(left:0.0,right: 250.0,top: 8.0),
-                              child: Text("Personal details",style:TextStyle(fontSize: 12.0,fontWeight: FontWeight.bold),),
+                          children: <Widget>[
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left:5.0,right: 215,top: 1.0),
+                                  child: Text("Personal details",style:TextStyle(fontSize: 12.0,fontWeight: FontWeight.bold),),
+                                ),
+                                Row(
+                                  children: [
+                                   Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: SizedBox(
+                                      width: 25.0,
+                                      height: 25.0,
+                                      child: FloatingActionButton(
+                                        child: Icon(Icons.edit),
+                                        backgroundColor: Colors.blue,
+                                        foregroundColor: Colors.white,
+                                        onPressed: () {  },
+                                      ),
+                                      ),
+                                      ),
+                              ],
                             ),
+                           ]),
+
+
 
 
                             Column(
@@ -297,15 +322,36 @@ class MyProfilePage extends State<MyProfileState>{
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: 130.0,
+              height: 140.0,
               width: 60.0,
               child: Card(
                 margin: EdgeInsets.all(0.0),
                 child: Column(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(right: 160.0,top: 8.0),
-                      child: Text("Medical insurance information",style:TextStyle(fontSize: 13.0,fontWeight: FontWeight.bold)),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 130.0,top: 8.0),
+                          child: Text("Medical insurance information",style:TextStyle(fontSize: 13.0,fontWeight: FontWeight.bold)),
+                        ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: SizedBox(
+                                width: 25.0,
+                                height: 25.0,
+                                child: FloatingActionButton(
+                                  child: Icon(Icons.edit),
+                                  backgroundColor: Colors.blue,
+                                  foregroundColor: Colors.white,
+                                  onPressed: () {  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     Row(
                         children:<Widget>[

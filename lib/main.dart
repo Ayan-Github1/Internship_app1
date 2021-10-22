@@ -4,7 +4,6 @@ import 'package:internship_app/statistics.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 import 'AddMoreVehicle.dart';
 import 'Dashboard.dart';
 import 'dailyrides.dart';
@@ -319,6 +318,7 @@ class Settings extends StatelessWidget{
 
       body: SingleChildScrollView(
         child: Container(
+          height: MediaQuery.of(context).size.height,
           color: Colors.grey.shade200,
           child: Column(
             children: <Widget>[

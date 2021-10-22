@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 
@@ -8,9 +9,7 @@ class LocationShare extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LocationShareState(),
-    );
+    return LocationShareState();
   }
 }
 
@@ -67,7 +66,7 @@ class LocationPage extends State<LocationShareState> with SingleTickerProviderSt
               builder: (context) =>
                   IconButton(
                     icon: Icon(Icons.arrow_back,size: 30.0,),
-                    onPressed: () => Scaffold.of(context).openDrawer(),
+                    onPressed: () => Navigator.pop(context),
                   ),
             )
         ),
@@ -239,7 +238,7 @@ class SharedwithmeState extends State<Sharedwithme>{
                   child: Container(
                     height: 80.0,
                     width: 80.0,
-                    child: Image.asset("assets/images/sharedwithme.jpeg"),// Didn't found the exact image, replaced with other image
+                    child: Image.asset("assets/images/swm.jpeg"),// Didn't found the exact image, replaced with other image
                   ),
                 ),
                 Padding(

@@ -61,7 +61,7 @@ class _MyDashboardState extends State<MyDashboard>{
           Stack(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height * 0.59,
+                height: MediaQuery.of(context).size.height * 0.629,
 
                 // Map integration code
                 child:  GoogleMap(
@@ -190,7 +190,7 @@ class _MyDashboardState extends State<MyDashboard>{
 
           
           Container(
-            height: 133.0,
+            height: MediaQuery.of(context).size.height * 0.19,
             color: Colors.grey.shade200,
             child: Column(
               children: <Widget>[
