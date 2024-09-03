@@ -44,11 +44,9 @@ class _MyDashboardState extends State<MyDashboard>{
     }
   }
 
-  late GoogleMapController _controller;
   final LatLng _center = const LatLng(15.353878, 75.138725);
 
   void _onMapCreated(GoogleMapController controller) {
-    _controller = controller;
   }
 
 

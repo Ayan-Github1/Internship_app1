@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'AddMoreVehicle.dart';
 import 'Dashboard.dart';
 import 'dailyrides.dart';
-import 'locationShare.dart';
+import 'package:internship_app/locationShare.dart';
 import 'myProfile.dart';
 import 'notifications.dart';
 

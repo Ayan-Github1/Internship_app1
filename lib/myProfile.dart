@@ -175,6 +175,7 @@ class MyProfilePage extends State<MyProfileState>{
                                     height: 35.0,
                                     width: 200.0,
 
+                                    // ignore: deprecated_member_use
                                     child: FlatButton( child: Text("Send verification link",style: TextStyle(color: Colors.white),),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10.0),
